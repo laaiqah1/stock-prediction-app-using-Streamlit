@@ -12,3 +12,6 @@ def build_rnn_model(input_shape):
     model.add(Dense(units=1))  # Output the predicted stock price
     model.compile(optimizer='adam', loss='mean_squared_error')
     return model
+
+model.save('models/rnn_model.h5')
+print("LSTM model saved as 'models/rnn_model.h5'")
