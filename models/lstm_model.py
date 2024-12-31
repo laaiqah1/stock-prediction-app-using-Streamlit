@@ -12,3 +12,8 @@ def build_lstm_model(input_shape):
     model.add(Dense(units=1))  # Output the predicted stock price
     model.compile(optimizer='adam', loss='mean_squared_error')
     return model
+
+# Save the model
+model.save('models/lstm_model.h5')
+print("LSTM model saved as 'models/lstm_model.h5'")
+
