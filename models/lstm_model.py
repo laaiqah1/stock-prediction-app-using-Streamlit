@@ -15,5 +15,5 @@ def build_lstm_model(input_shape):
 
 # Save the model
 model.save('models/lstm_model.h5')
-print("LSTM model saved as 'models/lstm_model.h5'")
+print("LSTM model saved as 'models.lstm_model.h5'")
 
