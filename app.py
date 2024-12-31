@@ -40,26 +40,27 @@ def prepare_data_for_model(df):
 
 features, target = prepare_data_for_model(df)
 
-# Handle the model prediction based on selected model
 if model_choice == 'LSTM':
     st.write("Running LSTM Model...")
     model = build_lstm_model(input_shape=(features.shape[1], 1))
-    # Assuming the model is pre-trained and saved as `lstm_model.h5`
-    model.load_weights('models/lstm_model.py')
+    # If you don't need to load pre-trained weights, just skip loading weights.
+    # model.load_weights('models/lstm_model.h5')  # REMOVE THIS LINE
     predictions = model.predict(features)
     st.write(predictions)
 
 elif model_choice == 'CNN':
     st.write("Running CNN Model...")
     model = build_cnn_model(input_shape=(features.shape[1], 1))
-    model.load_weights('models/cnn_model.py')
+    # If you don't need to load pre-trained weights, just skip loading weights.
+    # model.load_weights('models/cnn_model.h5')  # REMOVE THIS LINE
     predictions = model.predict(features)
     st.write(predictions)
 
 elif model_choice == 'RNN':
     st.write("Running RNN Model...")
     model = build_rnn_model(input_shape=(features.shape[1], 1))
-    model.load_weights('models/rnn_model.py')
+    # If you don't need to load pre-trained weights, just skip loading weights.
+    # model.load_weights('models/rnn_model.h5')  # REMOVE THIS LINE
     predictions = model.predict(features)
     st.write(predictions)
 
@@ -68,3 +69,4 @@ elif model_choice == 'XGBoost':
     model = train_xgboost_model(features, target)
     predictions = model.predict(features)
     st.write(predictions)
+
