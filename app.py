@@ -38,27 +38,28 @@ def prepare_data_for_model(df):
     features = features[:-1]
     return features, target
 
+# Assuming df is already defined and contains the necessary data
 features, target = prepare_data_for_model(df)
 
- if model_choice == 'LSTM':
+# Model choice and prediction handling
+if model_choice == 'LSTM':
     st.write("Running LSTM Model...")
     model = build_lstm_model(input_shape=(features.shape[1], 1))
-    # Assuming the model is pre-trained and saved as lstm_model.h5
-    model.load_weights('models/lstm_model.h5')
+    # No need to load weights, just use the model directly.
     predictions = model.predict(features)
     st.write(predictions)
 
 elif model_choice == 'CNN':
     st.write("Running CNN Model...")
     model = build_cnn_model(input_shape=(features.shape[1], 1))
-    model.load_weights('models/cnn_model.h5')
+    # No need to load weights, just use the model directly.
     predictions = model.predict(features)
     st.write(predictions)
 
 elif model_choice == 'RNN':
     st.write("Running RNN Model...")
     model = build_rnn_model(input_shape=(features.shape[1], 1))
-    model.load_weights('models/rnn_model.h5')
+    # No need to load weights, just use the model directly.
     predictions = model.predict(features)
     st.write(predictions)
 
@@ -67,4 +68,3 @@ elif model_choice == 'XGBoost':
     model = train_xgboost_model(features, target)
     predictions = model.predict(features)
     st.write(predictions)
-
