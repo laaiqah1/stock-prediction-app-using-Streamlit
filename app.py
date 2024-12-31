@@ -40,27 +40,25 @@ def prepare_data_for_model(df):
 
 features, target = prepare_data_for_model(df)
 
-if model_choice == 'LSTM':
+ if model_choice == 'LSTM':
     st.write("Running LSTM Model...")
     model = build_lstm_model(input_shape=(features.shape[1], 1))
-    # If you don't need to load pre-trained weights, just skip loading weights.
-    # model.load_weights('models/lstm_model.h5')  # REMOVE THIS LINE
+    # Assuming the model is pre-trained and saved as lstm_model.h5
+    model.load_weights('models/lstm_model.h5')
     predictions = model.predict(features)
     st.write(predictions)
 
 elif model_choice == 'CNN':
     st.write("Running CNN Model...")
     model = build_cnn_model(input_shape=(features.shape[1], 1))
-    # If you don't need to load pre-trained weights, just skip loading weights.
-    # model.load_weights('models/cnn_model.h5')  # REMOVE THIS LINE
+    model.load_weights('models/cnn_model.h5')
     predictions = model.predict(features)
     st.write(predictions)
 
 elif model_choice == 'RNN':
     st.write("Running RNN Model...")
     model = build_rnn_model(input_shape=(features.shape[1], 1))
-    # If you don't need to load pre-trained weights, just skip loading weights.
-    # model.load_weights('models/rnn_model.h5')  # REMOVE THIS LINE
+    model.load_weights('models/rnn_model.h5')
     predictions = model.predict(features)
     st.write(predictions)
 
